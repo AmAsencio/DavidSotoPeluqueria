@@ -98,7 +98,7 @@ export function Header() {
             >
               Contacto
             </a>
-            <Button className="bg-primary text-primary-foreground hover:bg-secondary w-full mt-2">Reservar Cita</Button>
+            <a href="#reservas"><Button className="bg-primary text-primary-foreground hover:bg-secondary w-full mt-2">Reservar Cita</Button></a>
           </nav>
         </div>
       )}

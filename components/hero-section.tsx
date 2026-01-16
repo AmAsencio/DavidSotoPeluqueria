@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react"
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-20">
+    <section className="relative h-[100dvh] min-h-[600px] flex items-center justify-center pt-20">
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
@@ -27,7 +27,7 @@ export function HeroSection() {
           corte perfecto en David Soto Barbería.
         </p>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20">
           <a href="#reservas">
             <Button
               size="lg"
