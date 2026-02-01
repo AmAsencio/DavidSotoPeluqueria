@@ -10,17 +10,17 @@ export function TeamSection() {
     {
       name: "David Soto",
       years: 20,
-      image: "/professional-male-barber-portrait-mature-spanish-m.jpg",
+      image: "/professional-male-barber-portrait-mature-spanish-m.webp",
     },
     {
       name: "Antonio García",
       years: 15,
-      image: "/professional-male-barber-portrait-young-spanish-ma.jpg",
+      image: "/professional-male-barber-portrait-young-spanish-ma.webp",
     },
     {
       name: "Carlos Martínez",
       years: 10,
-      image: "/professional-male-barber-portrait-spanish-man-mode.jpg",
+      image: "/professional-male-barber-portrait-spanish-man-mode.webp",
     },
   ]
 
