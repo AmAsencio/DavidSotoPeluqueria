@@ -3,9 +3,15 @@
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
+import { useLanguage } from "@/lib/language-context"
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const { language, setLanguage, t } = useLanguage()
+
+  const toggleLanguage = () => {
+    setLanguage(language === "es" ? "en" : "es")
+  }
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
@@ -19,36 +25,42 @@ export function Header() {
             href="#nosotros"
             className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
           >
-            Nosotros
+            {t.header.about}
           </a>
           <a
             href="#servicios"
             className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
           >
-            Servicios
+            {t.header.services}
           </a>
           <a
             href="#equipo"
             className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
           >
-            Equipo
+            {t.header.team}
           </a>
           <a
             href="#opiniones"
             className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
           >
-            Opiniones
+            {t.header.reviews}
           </a>
           <a
             href="#contacto"
             className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
           >
-            Contacto
+            {t.header.contact}
           </a>
         </nav>
 
-        <div className="hidden md:block">
-          <a href="#reservas"><Button className="bg-primary text-primary-foreground hover:bg-secondary">Reservar Cita</Button></a>
+        <div className="hidden md:flex items-center gap-4">
+          <button
+            onClick={toggleLanguage}
+            className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors px-3 py-1.5 border border-border rounded-md"
+          >
+            {language === "es" ? "EN" : "ES"}
+          </button>
+          <a href="#reservas"><Button className="bg-primary text-primary-foreground hover:bg-secondary">{t.header.bookAppointment}</Button></a>
         </div>
 
         <button
@@ -63,45 +75,54 @@ export function Header() {
       {isMenuOpen && (
         <div className="md:hidden bg-background border-t border-border">
           <nav className="flex flex-col p-6 gap-4">
+            <button
+              onClick={toggleLanguage}
+              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors px-3 py-1.5 border border-border rounded-md w-fit"
+            >
+              {language === "es" ? "EN" : "ES"}
+            </button>
             <a
               href="#nosotros"
               className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
-              Nosotros
+              {t.header.about}
             </a>
             <a
               href="#servicios"
               className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
-              Servicios
+              {t.header.services}
             </a>
             <a
               href="#equipo"
               className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
-              Equipo
+              {t.header.team}
             </a>
             <a
               href="#opiniones"
               className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
-              Opiniones
+              {t.header.reviews}
             </a>
             <a
               href="#contacto"
               className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
-              Contacto
+              {t.header.contact}
             </a>
-            <a href="#reservas"><Button className="bg-primary text-primary-foreground hover:bg-secondary w-full mt-2">Reservar Cita</Button></a>
+            <a href="#reservas"><Button className="bg-primary text-primary-foreground hover:bg-secondary w-full mt-2">{t.header.bookAppointment}</Button></a>
+
           </nav>
         </div>
       )}
     </header>
   )
 }
+
+
